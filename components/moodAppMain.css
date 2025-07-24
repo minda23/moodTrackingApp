@@ -1,0 +1,20 @@
+.main-headings {
+    text-align: center;
+}
+
+.load-mood {
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.heading-name {
+    color: #4865db
+}
+
+.quote-main {
+    color: #22224f;
+}
+
+.date {
+    color: #57577a;
+}
