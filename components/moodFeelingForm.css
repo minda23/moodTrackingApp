@@ -1,6 +1,5 @@
-
-
-
-ul li {
+.feeling-text {
     font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './moodEntryForm.css';
 
-const MoodEntryForm = ({ isOpen, onClose }) => {
+const MoodEntryForm = ({ isOpen, onClose, onContinue }) => {
     const [selectedMood, setSelectedMood] = useState('');
 
     const moods = [
@@ -12,15 +12,25 @@ const MoodEntryForm = ({ isOpen, onClose }) => {
         { label: 'Very Sad', emoji: '😭', color: '#FFEBEE' },
     ];
 
-    
+    const handleContinue = () => {
+        if (selectedMood) {
+            onContinue(selectedMood);
+            onClose(); 
+        } else {
+            alert('Please select a mood before continuing.');
+        }
+    };
 
     if (!isOpen) return null;
 
     return (
         <div className="modal-backdrop">
             <div className="modal">
-                <button className="close-btn" onClick={onClose}>×</button>
-                <h2>Log your mood</h2>
+                <div className='mood-menu'>
+                    <h2>Log your mood</h2>
+                    <button className="close-btn" onClick={onClose}>×</button>
+                </div>
+
                 <p className="step-indicator">● ● ● ●</p>
                 <h3>How was your mood today?</h3>
 
@@ -44,12 +54,12 @@ const MoodEntryForm = ({ isOpen, onClose }) => {
                     ))}
                 </div>
 
-                <button className="continue-btn" onClick={() => alert(`Selected: ${selectedMood}`)}>
+                <button className="continue-btn" onClick={handleContinue}>
                     Continue
                 </button>
             </div>
         </div>
     );
-}
+};
 
-export default MoodEntryForm
+export default MoodEntryForm;

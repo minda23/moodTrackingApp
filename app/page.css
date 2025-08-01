@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Reddit Sans';
+  src: url('/fonts/Reddit_Sans/RedditSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* Variable font weight range */
+  font-style: normal;
+}

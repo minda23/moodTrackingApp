@@ -14,7 +14,9 @@ const MoodFeelingsForm = () => {
            {feelingData.feelings && feelingData.feelings.length > 0 && (
                 <ul className="feelings-list">
                     {feelingData.feelings.map((feeling, index) => (
-                        <li key={index}>{feeling}</li>
+                        <div className="feeling-text">
+                        <p key={index}>{feeling}</p>
+                        </div>
                     ))}
                 </ul>
             )}

@@ -23,16 +23,17 @@
 }
 
 .close-btn {
-    position: absolute;
-    right: 16px;
-    top: 12px;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 2rem;
     cursor: pointer;
     color: #888;
 }
 
+.mood-menu{
+    display: flex;
+    justify-content: space-between;
+}
 h2 {
     margin: 0;
     font-size: 22px;

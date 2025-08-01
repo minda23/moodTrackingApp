@@ -11,6 +11,8 @@ export const moodFeelingContext = createContext("React");
 const MoodAppMain = () => {
     const [data, setData] = useState([]);
     const [showForm, setShowForm] = useState(false);
+    const [showMoodEntryForm, setShowMoodEntryForm] = useState(true);
+    const [showMoodFeelingForm, setShowMoodFeelingForm] = useState(false);
 
     useEffect(() => {
         fetch('./data.json')
@@ -30,8 +32,12 @@ const MoodAppMain = () => {
 
     return (
           <moodFeelingContext value={data}>
+            <div className='main-images'>
+                 <img className='logo' src='./images/logo.svg' alt="Logo" />
+                 <img className='logo' src='./images/avatar-placeholder.svg' alt="Logo" />
+            </div>
         <div>
-            <img src='./images/logo.svg' alt="Logo" />
+           
             <div className='main-headings'>
                 <h2 className='heading-name'>Hello Lisa</h2>
                 <h1 className='quote-main'>How are you feeling today</h1>
@@ -45,7 +51,7 @@ const MoodAppMain = () => {
             {data.map((entry, key) => (
                 <div key={key}>
                     <MoodInfo data={entry} />
-                    <MoodFeelingsForm data={entry} />
+
                 </div>
             ))}
         </div>
