@@ -22,14 +22,12 @@ const MoodAppMain = () => {
             });
     }, []); 
 
-    const handleOpenForm = () => {
-        setShowForm(true);
-    };
+    const handleMoodContinue = (selectedMood) => {
+  setShowMoodEntryForm(false);
+  setShowMoodFeelingForm(true);
+};
 
-    const handleCloseForm = () => {
-        setShowForm(false);
-    };
-
+   
     return (
           <moodFeelingContext value={data}>
             <div className='main-images'>
@@ -46,7 +44,20 @@ const MoodAppMain = () => {
             </div>
 
             
-            <MoodEntryForm isOpen={showForm} onClose={handleCloseForm} />
+           {showMoodEntryForm ? (
+                 <MoodEntryForm
+                        isOpen={showMoodEntryForm}
+                        onClose={() => setShowMoodEntryForm(false)}
+                        onContinue={handleMoodContinue}
+                     />
+                    ) : showMoodFeelingForm ? (
+                <MoodFeelingsForm
+                        onSubmit={() => {
+                         setShowMoodFeelingForm(false);
+
+    }}
+  />
+) : null}
 
             {data.map((entry, key) => (
                 <div key={key}>
